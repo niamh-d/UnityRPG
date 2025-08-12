@@ -9,5 +9,10 @@ public class Player_MoveState : EntityState
     public override void Update()
     {
         base.Update();
+
+        if(player.moveInput.x != 0)
+        {
+            stateMachine.ChangeState(player.moveState);
+        }
     }
 }

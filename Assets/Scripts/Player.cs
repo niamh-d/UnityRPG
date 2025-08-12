@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Vector2 moveInput { get; private set; }
+    public Player_MoveState moveState { get; private set; }
+    public Player_IdleState idleState { get; private set; }
+
     private PlayerInputSet _inputSet;
     private StateMachine stateMachine;
-    public Player_IdleState idleState { get; private set; }
-    public Player_MoveState moveState { get; private set; }
 
     private void Awake()
     {
@@ -37,6 +39,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        stateMachine.currentState.Update();
+        stateMachine.UpdateActiveState();
     }
 }
